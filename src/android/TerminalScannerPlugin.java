@@ -11,8 +11,10 @@ import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.Set;
+
 public class TerminalScannerPlugin extends CordovaPlugin {
-    private static final String UROVO_MANUFACTURER = "UBX";
+    private static final Set<String> UROVO_MANUFACTURERS = Set.of("UBX", "Urovo");
     private static final String LOG_TAG = "UrovoPDAPlugin";
     private static final String UROVO_SCAN_ACTION = "urovo.rcv.message";
     private static final String ATOL_SCAN_ACTION = "com.xcheng.scanner.action.BARCODE_DECODING_BROADCAST";
@@ -81,7 +83,7 @@ public class TerminalScannerPlugin extends CordovaPlugin {
 
     private void initScan() {
         System.out.println("manufacturer: " + android.os.Build.MANUFACTURER);
-        if (UROVO_MANUFACTURER.equals(android.os.Build.MANUFACTURER)) {
+        if (UROVO_MANUFACTURERS.contains(android.os.Build.MANUFACTURER)) {
             scanManager = new ScanManager();
             scanManager.openScanner();
             scanManager.switchOutputMode(0);
