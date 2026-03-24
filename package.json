@@ -1,6 +1,6 @@
 {
   "name": "cordova-terminal-scanner-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A plugin for PDA Terminal barcode scanners (Urovo, Atol, Zebra)",
   "main": "www/scanner.js",
   "scripts": {
